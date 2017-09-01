@@ -1,0 +1,33 @@
+doctype html
+html(lang='en')
+  head
+    style.
+      button { height: 60px; width: 60px; font-size: 20pt;
+      border-radius: 50px; transition-duration: 0.4s; border:0px;}
+      button:hover {background-color: #008CBA; }
+      body {background-color: #78909C}
+    script(src = '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+    script(src = '/socket.io/socket.io.js')
+    script(src = 'client.js')
+  body
+    table
+      - for (var i = 0; i < 8; ++i) {
+          tr
+            - for (var j = 0; j < 8; ++j) {
+              td
+                button(id="m#{i}#{j}")
+            - }
+      - }
+    p
+      strong
+        font#status(face='helvetica', color='#263238') Game hasn't started
+    p
+      strong
+        font#message(face='helvetica', color='#263238') It's Not your turn
+    p
+      strong
+        font#id(face='helvetica', color='#263238') ID: -1  
+    p
+      strong
+        font#score(face='verdana', color='#3F51B5') Score:
+
